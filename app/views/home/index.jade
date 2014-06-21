@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1 Sei grandi!
+
+  div
+    table
+      thead
+        tr: th Levels
+      tbody
+        each level, i in levels
+          tr
+            td
+              #{level.time} - #{level.value}
