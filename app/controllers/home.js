@@ -15,8 +15,6 @@ exports.index = function(req, res) {
 // On POST
 
 exports.create = function(req, res) {
-  console.dir(req);
-
   var moistureLevel = new MoistureModel({
     time: req.body.time,
     value: req.body.value
