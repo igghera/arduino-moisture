@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
   MoistureModel = mongoose.model('MoistureLevel');
 
-// On GET
+// On GET /: return JSON formatted list of values
 
 exports.index = function(req, res) {
   // Select all values
@@ -12,11 +12,29 @@ exports.index = function(req, res) {
   });
 };
 
-// On POST
+// On GET /graph: render a view with a graph
+
+exports.graph = function(req, res) {
+  // Select all values
+  MoistureModel.find(function(err, levels) {
+    res.render('home/index', {
+      title: 'Moisture level graph',
+      levels: levels
+    });
+  });
+};
+
+// On POST /: save data to db
 
 exports.create = function(req, res) {
+  var d = new Date();
+  // Add timezone offset
+  var c = new Date(d.getTime() + 10 * 1000 * 60 * 60);
+
+  console.log("["+ c.toGMTString() +"] Saving value " + req.body.value);
+
   var moistureLevel = new MoistureModel({
-    time: req.body.time,
+    time: c.getTime(), //req.body.time,
     value: req.body.value
   });
 
@@ -24,7 +42,7 @@ exports.create = function(req, res) {
     if (!err) {
       return res.send(moistureLevel);
     } else {
-      return console.log(err);
+      return console.log(req.body);
     }
   });
 };
