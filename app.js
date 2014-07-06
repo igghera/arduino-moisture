@@ -19,10 +19,13 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 var app = express();
 
+<<<<<<< HEAD
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 app.use(express.bodyParser());
 
+=======
+>>>>>>> e588e23aae7fbe36d46f95c356c1ec570512670e
 require('./config/express')(app, config);
 require('./config/routes')(app);
 

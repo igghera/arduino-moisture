@@ -8,7 +8,7 @@ var config = {
     app: {
       name: 'arduino-moisture-server'
     },
-    port: 3000,
+    port: 4000,
     db: 'mongodb://localhost/arduino-moisture-server-development'
   },
 
@@ -17,7 +17,7 @@ var config = {
     app: {
       name: 'arduino-moisture-server'
     },
-    port: 3000,
+    port: 4000,
     db: 'mongodb://localhost/arduino-moisture-server-test'
   },
 
@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'arduino-moisture-server'
     },
-    port: 3000,
+    port: 4000,
     db: 'mongodb://localhost/arduino-moisture-server-production'
   }
 };

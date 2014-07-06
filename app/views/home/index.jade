@@ -1,7 +1,8 @@
 extends ../layout
 
 block content
-  h1 Sei grandi!
+  //- Highcharts graph will be rendered in here
+  div#container
 
   div
     table
@@ -12,3 +13,11 @@ block content
           tr
             td
               #{level.time} - #{level.value}
+
+block js
+  //- Here we inject data from server to client
+  script
+    window.levels = !{JSON.stringify(levels)};
+  script(src='/components/jquery/dist/jquery.js')
+  script(src='/components/highcharts-release/highcharts.js')
+  script(src='/js/highcharts.js')
